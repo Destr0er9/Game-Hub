@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Игры</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <span class="logo-text">GameHub</span>
+                <img class="logo-img" src="logo/1b42604a-5cae-4c57-a138-0c3ff88602f0.png" alt="GameHub Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="games.html">Игры</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="social-links">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+                <div class="social-links">
+                    <a href="https://vk.com/mklyucherev" class="social-icon" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="https://t.me/destroer1" class="social-icon" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/@gretskiyoleg" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="games-section">
+        <div class="container">
+            <h2>Каталог игр</h2>
+            <div class="filter-bar">
+                <input type="text" placeholder="Поиск по названию..." id="searchInput" oninput="filterGames()">
+                <div class="filter-dropdown">
+                    <button class="filter-btn pulse">Фильтры ▼</button>
+                    <div class="filter-options">
+                        <div class="filter-group">
+                            <h4>Жанр</h4>
+                            <div class="filter-columns">
+                                <div>
+                                    <label><input type="checkbox" name="genre" value="RPG" onchange="filterGames()"> РПГ</label>
+                                    <label><input type="checkbox" name="genre" value="Action" onchange="filterGames()"> Экшен</label>
+                                    <label><input type="checkbox" name="genre" value="FPS" onchange="filterGames()"> Шутер от первого лица</label>
+                                    <label><input type="checkbox" name="genre" value="Strategy" onchange="filterGames()"> Стратегия</label>
+                                    <label><input type="checkbox" name="genre" value="Adventure" onchange="filterGames()"> Приключения</label>
+                                </div>
+                                <div>
+                                    <label><input type="checkbox" name="genre" value="Simulation" onchange="filterGames()"> Симулятор</label>
+                                    <label><input type="checkbox" name="genre" value="Indie" onchange="filterGames()"> Инди</label>
+                                    <label><input type="checkbox" name="genre" value="Sports" onchange="filterGames()"> Спорт</label>
+                                    <label><input type="checkbox" name="genre" value="Racing" onchange="filterGames()"> Гонки</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Платформа</h4>
+                            <div class="filter-columns">
+                                <div>
+                                    <label><input type="checkbox" name="platform" value="PC" onchange="filterGames()"> ПК</label>
+                                    <label><input type="checkbox" name="platform" value="PS5" onchange="filterGames()"> PS5</label>
+                                </div>
+                                <div>
+                                    <label><input type="checkbox" name="platform" value="Xbox" onchange="filterGames()"> Xbox</label>
+                                    <label><input type="checkbox" name="platform" value="Nintendo Switch" onchange="filterGames()"> Nintendo Switch</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Цена</h4>
+                            <div class="filter-columns">
+                                <div>
+                                    <label><input type="checkbox" name="price" value="free" onchange="filterGames()"> Бесплатно</label>
+                                </div>
+                                <div>
+                                    <label><input type="checkbox" name="price" value="paid" onchange="filterGames()"> Платно</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Язык интерфейса</h4>
+                            <div class="filter-columns">
+                                <div>
+                                    <label><input type="checkbox" name="language" value="Russian" onchange="filterGames()"> Русский</label>
+                                </div>
+                                <div>
+                                    <label><input type="checkbox" name="language" value="English" onchange="filterGames()"> Английский</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Количество игроков</h4>
+                            <div class="filter-columns">
+                                <div>
+                                    <label><input type="checkbox" name="players" value="Singleplayer" onchange="filterGames()"> Одиночная</label>
+                                    <label><input type="checkbox" name="players" value="Coop" onchange="filterGames()"> Кооператив</label>
+                                </div>
+                                <div>
+                                    <label><input type="checkbox" name="players" value="Multiplayer" onchange="filterGames()"> Многопользовательская</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Поддержка контроллеров</h4>
+                            <div class="filter-columns">
+                                <div>
+                                    <label><input type="checkbox" name="controller" value="Full" onchange="filterGames()"> Полная</label>
+                                    <label><input type="checkbox" name="controller" value="Partial" onchange="filterGames()"> Частичная</label>
+                                </div>
+                                <div>
+                                    <label><input type="checkbox" name="controller" value="None" onchange="filterGames()"> Нет</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game-grid" id="gameGrid">
+                <div class="game-card" data-parallax="card" data-genre="MOBA" data-platform="PC" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Partial">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/header.jpg?t=1739210483" alt="Dota 2">
+                    <div class="game-info">
+                        <h3>Dota 2</h3>
+                        <p>Многопользовательская командная игра в жанре MOBA, разработанная Valve. Сражайтесь в эпичных матчах, управляя уникальными героями.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="FPS" data-platform="PC" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Full">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1729703045" alt="Counter-Strike 2">
+                    <div class="game-info">
+                        <h3>Counter-Strike 2</h3>
+                        <p>Тактический шутер от первого лица от Valve. Соревнуйтесь в напряжённых матчах с обновлённой графикой.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation" data-platform="PC" data-price="paid" data-language="English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3164500/header.jpg?t=1742853609" alt="Schedule I">
+                    <div class="game-info">
+                        <h3>Schedule I</h3>
+                        <p>Симулятор криминального мира: от мелкого торговца до криминального авторитета в городе Хайленд-Пойнт.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="RPG" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg" alt="The Witcher 3">
+                    <div class="game-info">
+                        <h3>The Witcher 3: Wild Hunt</h3>
+                        <p>Эпическая RPG с открытым миром, где вы играете за Геральта из Ривии, охотника за чудовищами.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation,Indie" data-platform="PC,Nintendo Switch" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Coop" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/413150/header.jpg" alt="Stardew Valley">
+                    <div class="game-info">
+                        <h3>Stardew Valley</h3>
+                        <p>Симулятор фермерской жизни с элементами RPG. Создайте свою ферму и исследуйте мир.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg" alt="Hollow Knight">
+                    <div class="game-info">
+                        <h3>Hollow Knight</h3>
+                        <p>Атмосферный 2D-платформер с элементами метроидвании. Исследуйте мрачный подземный мир.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Coop" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/620/header.jpg" alt="Portal 2">
+                    <div class="game-info">
+                        <h3>Portal 2</h3>
+                        <p>Головоломка от первого лица с портальной пушкой. Решайте задачи в лаборатории Aperture.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie" data-platform="PC" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg" alt="Among Us">
+                    <div class="game-info">
+                        <h3>Among Us</h3>
+                        <p>Многопользовательская игра, где нужно вычислить предателя среди членов экипажа.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/289070/header.jpg" alt="Civilization VI">
+                    <div class="game-info">
+                        <h3>Civilization VI</h3>
+                        <p>Пошаговая стратегия, где вы строите свою цивилизацию от древности до современности.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="FPS,Action" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg" alt="DOOM Eternal">
+                    <div class="game-info">
+                        <h3>DOOM Eternal</h3>
+                        <p>Адреналиновый шутер от первого лица. Сражайтесь с ордами демонов на Земле и за её пределами.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="RPG,Action" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
+                    <div class="game-info">
+                        <h3>Cyberpunk 2077</h3>
+                        <p>Открытый мир в стиле киберпанк. Исследуйте Найт-Сити и станьте легендой.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Action" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg" alt="Hades">
+                    <div class="game-info">
+                        <h3>Hades</h3>
+                        <p>Рогалик с элементами экшена. Сражайтесь, чтобы сбежать из подземного мира Аида.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Action" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Coop" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/582010/header.jpg" alt="Monster Hunter: World">
+                    <div class="game-info">
+                        <h3>Monster Hunter: World</h3>
+                        <p>Охотьтесь на гигантских монстров в огромном открытом мире.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/105600/header.jpg" alt="Terraria">
+                    <div class="game-info">
+                        <h3>Terraria</h3>
+                        <p>2D-песочница с бесконечными приключениями. Стройте, сражайтесь и исследуйте.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Action" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg" alt="Sekiro">
+                    <div class="game-info">
+                        <h3>Sekiro: Shadows Die Twice</h3>
+                        <p>Экшен от FromSoftware. Станьте шиноби и сражайтесь в феодальной Японии.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/646570/header.jpg" alt="Slay the Spire">
+                    <div class="game-info">
+                        <h3>Slay the Spire</h3>
+                        <p>Карточный рогалик. Составляйте колоду и сражайтесь с врагами, поднимаясь на шпиль.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Sports" data-platform="PC,PS5,Xbox" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/252950/header.jpg" alt="Rocket League">
+                    <div class="game-info">
+                        <h3>Rocket League</h3>
+                        <p>Футбол на машинах! Соревнуйтесь в динамичных матчах с друзьями.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Racing" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg" alt="Forza Horizon 5">
+                    <div class="game-info">
+                        <h3>Forza Horizon 5</h3>
+                        <p>Гоночная игра с открытым миром. Исследуйте Мексику и участвуйте в гонках.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/504230/header.jpg" alt="Celeste">
+                    <div class="game-info">
+                        <h3>Celeste</h3>
+                        <p>Платформер с трогательной историей. Помогите Маделин взобраться на гору Селеста.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Action" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/381210/header.jpg" alt="Dead by Daylight">
+                    <div class="game-info">
+                        <h3>Dead by Daylight</h3>
+                        <p>Многопользовательский хоррор. Один игрок — убийца, остальные — выжившие.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation,Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/427520/header.jpg" alt="Factorio">
+                    <div class="game-info">
+                        <h3>Factorio</h3>
+                        <p>Симулятор строительства и автоматизации. Создайте огромную фабрику.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Adventure" data-platform="PC,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1057090/header.jpg" alt="Ori and the Will of the Wisps">
+                    <div class="game-info">
+                        <h3>Ori and the Will of the Wisps</h3>
+                        <p>Визуально потрясающий платформер. Исследуйте мир в роли духа Ори.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Sports" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1506830/header.jpg" alt="FIFA 23">
+                    <div class="game-info">
+                        <h3>FIFA 23</h3>
+                        <p>Футбольный симулятор с реалистичной графикой и улучшенным геймплеем.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/255710/header.jpg" alt="Cities: Skylines">
+                    <div class="game-info">
+                        <h3>Cities: Skylines</h3>
+                        <p>Симулятор градостроительства. Создайте и управляйте своим городом.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1142710/header.jpg" alt="Total War: WARHAMMER III">
+                    <div class="game-info">
+                        <h3>Total War: WARHAMMER III</h3>
+                        <p>Стратегия в фэнтезийном мире. Ведите армии и завоёвывайте земли.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Racing" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1222680/header.jpg" alt="Need for Speed Heat">
+                    <div class="game-info">
+                        <h3>Need for Speed Heat</h3>
+                        <p>Гонки с открытым миром. Участвуйте в уличных заездах и избегайте полиции.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Multiplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/322330/header.jpg" alt="Don't Starve Together">
+                    <div class="game-info">
+                        <h3>Don't Starve Together</h3>
+                        <p>Многопользовательская выживалка в мрачном мире. Не дайте себе умереть с голоду.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="FPS" data-platform="PC" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg" alt="Apex Legends">
+                    <div class="game-info">
+                        <h3>Apex Legends</h3>
+                        <p>Бесплатный шутер в жанре королевской битвы. Сражайтесь в командах по три игрока.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/264710/header.jpg" alt="Subnautica">
+                    <div class="game-info">
+                        <h3>Subnautica</h3>
+                        <p>Исследуйте подводный мир на чужой планете. Стройте базы и выживайте.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation,Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/294100/header.jpg" alt="RimWorld">
+                    <div class="game-info">
+                        <h3>RimWorld</h3>
+                        <p>Симулятор колонии на краю галактики. Управляйте поселенцами и выживайте.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="FPS" data-platform="PC" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2357570/header.jpg" alt="Overwatch 2">
+                    <div class="game-info">
+                        <h3>Overwatch 2</h3>
+                        <p>Командный шутер от Blizzard. Сражайтесь в динамичных матчах 5 на 5.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/683320/header.jpg" alt="Gris">
+                    <div class="game-info">
+                        <h3>Gris</h3>
+                        <p>Художественный платформер с потрясающей графикой и эмоциональной историей.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/268500/header.jpg" alt="XCOM 2">
+                    <div class="game-info">
+                        <h3>XCOM 2</h3>
+                        <p>Пошаговая стратегия. Ведите сопротивление против инопланетного вторжения.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Sports" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1919590/header.jpg" alt="NBA 2K23">
+                    <div class="game-info">
+                        <h3>NBA 2K23</h3>
+                        <p>Баскетбольный симулятор с реалистичным геймплеем и графикой.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Racing" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/690790/header.jpg" alt="Dirt Rally 2.0">
+                    <div class="game-info">
+                        <h3>Dirt Rally 2.0</h3>
+                        <p>Реалистичный раллийный симулятор. Гоняйте по трассам по всему миру.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Action" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/268910/header.jpg" alt="Cuphead">
+                    <div class="game-info">
+                        <h3>Cuphead</h3>
+                        <p>Сложный платформер в стиле 1930-х с уникальной графикой и боссами.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie" data-platform="PC" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/header.jpg" alt="Fall Guys">
+                    <div class="game-info">
+                        <h3>Fall Guys</h3>
+                        <p>Весёлая королевская битва с препятствиями. Соревнуйтесь с другими игроками.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation,Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/323190/header.jpg" alt="Frostpunk">
+                    <div class="game-info">
+                        <h3>Frostpunk</h3>
+                        <p>Симулятор выживания в замёрзшем мире. Управляйте городом в условиях вечной зимы.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/638230/header.jpg" alt="Journey">
+                    <div class="game-info">
+                        <h3>Journey</h3>
+                        <p>Эмоциональное приключение в пустыне. Исследуйте мир и встречайтесь с другими игроками.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation,Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/457140/header.jpg" alt="Oxygen Not Included">
+                    <div class="game-info">
+                        <h3>Oxygen Not Included</h3>
+                        <p>Симулятор колонии в космосе. Управляйте ресурсами и выживайте.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="FPS" data-platform="PC" data-price="free" data-language="Russian,English" data-players="Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg" alt="Team Fortress 2">
+                    <div class="game-info">
+                        <h3>Team Fortress 2</h3>
+                        <p>Классический командный шутер от Valve с уникальными классами.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,RPG" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/391540/header.jpg" alt="Undertale">
+                    <div class="game-info">
+                        <h3>Undertale</h3>
+                        <p>RPG с уникальной механикой. Решайте, сражаться или дружить с монстрами.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Action" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Coop" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/739630/header.jpg" alt="Phasmophobia">
+                    <div class="game-info">
+                        <h3>Phasmophobia</h3>
+                        <p>Кооперативный хоррор. Исследуйте дома с привидениями и собирайте улики.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1466860/header.jpg" alt="Age of Empires IV">
+                    <div class="game-info">
+                        <h3>Age of Empires IV</h3>
+                        <p>Классическая стратегия в реальном времени. Ведите свою империю к величию.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Sports" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1919580/header.jpg" alt="Madden NFL 23">
+                    <div class="game-info">
+                        <h3>Madden NFL 23</h3>
+                        <p>Симулятор американского футбола с улучшенной графикой и геймплеем.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Racing" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2108330/header.jpg" alt="F1 23">
+                    <div class="game-info">
+                        <h3>F1 23</h3>
+                        <p>Официальная игра Формулы-1. Гоняйте на трассах и станьте чемпионом.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/383870/header.jpg" alt="Firewatch">
+                    <div class="game-info">
+                        <h3>Firewatch</h3>
+                        <p>Приключение от первого лица. Исследуйте леса Вайоминга и раскройте тайны.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Simulation" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/220200/header.jpg" alt="Kerbal Space Program">
+                    <div class="game-info">
+                        <h3>Kerbal Space Program</h3>
+                        <p>Симулятор космических полётов. Стройте ракеты и исследуйте космос.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="FPS" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Coop" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/550/header.jpg" alt="Left 4 Dead 2">
+                    <div class="game-info">
+                        <h3>Left 4 Dead 2</h3>
+                        <p>Кооперативный шутер. Сражайтесь с ордами зомби вместе с друзьями.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Action" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/250760/header.jpg" alt="Shovel Knight">
+                    <div class="game-info">
+                        <h3>Shovel Knight</h3>
+                        <p>Ретро-платформер. Сражайтесь с врагами в роли рыцаря с лопатой.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Action" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/242760/header.jpg" alt="The Forest">
+                    <div class="game-info">
+                        <h3>The Forest</h3>
+                        <p>Выживание в открытом мире. Стройте укрытия и сражайтесь с мутантами.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Strategy" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="None">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1158310/header.jpg" alt="Crusader Kings III">
+                    <div class="game-info">
+                        <h3>Crusader Kings III</h3>
+                        <p>Глобальная стратегия. Управляйте династией в Средневековье.</p>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Sports" data-platform="PC,PS5,Xbox" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1919580/header.jpg" alt="WWE 2K23">
+                    <div class="game-info">
+                        <h3>WWE 2K23</h3>
+                        <p>Симулятор реслинга с реалистичными боями и звёздами WWE.</p>
+                        <span class="rating">★★★☆☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Racing" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer,Multiplayer" data-controller="Full">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/244210/header.jpg" alt="Assetto Corsa">
+                    <div class="game-info">
+                        <h3>Assetto Corsa</h3>
+                        <p>Реалистичный гоночный симулятор с детализированными машинами и трассами.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="game-card" data-parallax="card" data-genre="Indie,Adventure" data-platform="PC" data-price="paid" data-language="Russian,English" data-players="Singleplayer" data-controller="Partial">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304430/header.jpg" alt="Inside">
+                    <div class="game-info">
+                        <h3>Inside</h3>
+                        <p>Мрачный платформер с загадочной историей. Раскройте тайны мира.</p>
+                        <span class="rating">★★★★☆</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: <a href="mailto:klucerevmaksim00@gmail.com">klucerevmaksim00@gmail.com</a></p>
+                    <p>Телефон: <a href="tel:+79229524575">+79229524575</a></p>
+                    <p>Адрес: г. Москва, ул. Геймерская, д. 42</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="https://vk.com/mklyucherev" class="social-icon" target="_blank"><i class="fab fa-vk"></i></a>
+                        <a href="https://t.me/destroer1" class="social-icon" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.youtube.com/@gretskiyoleg" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p>© 2025 GameHub. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
